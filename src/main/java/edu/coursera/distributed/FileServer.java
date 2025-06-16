@@ -4,10 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 /**
  * A basic and very limited implementation of a file server that responds to GET
@@ -49,50 +49,60 @@ public final class FileServer {
              */
             try{
                 InputStream inputStream = s.getInputStream();
-            InputStreamReader reader = new InputStreamReader(inputStream);
-            BufferedReader bufferedReader = new BufferedReader(reader);
+                InputStreamReader reader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(reader);
 
-            String requestLine = bufferedReader.readLine();
-            if (requestLine == null || !requestLine.startsWith("GET ")) {                
-                System.out.println("Invalid request: " + requestLine);
-                continue;
-            }
+                String requestLine = bufferedReader.readLine();
+                OutputStream outputStream = s.getOutputStream();
+                PrintWriter printer = new PrintWriter(outputStream, true);
+                if (requestLine == null || !requestLine.startsWith("GET ")) {                
+                    System.out.println("Invalid request: " + requestLine);  
+                    printer.write(
+                        "HTTP/1.0 400 Bad Request\r\n" +
+                        "Server: FileServer\r\n" +
+                        "\r\n"+
+                        "\r\n"
+                    );   
+                    printer.flush();
+                    continue; 
+                }
 
-            final String path = requestLine.split(" ")[1];
-            System.out.println("Received request for: " + path);
-            
-            PCDPPath pcdpPath = new PCDPPath(path);
-            System.out.println("Parsed PCDPPath: " + pcdpPath);
+                final String path = requestLine.split(" ")[1];
+                System.out.println("Received request for: " + path);
+                
+                PCDPPath pcdpPath = new PCDPPath(path);
+                System.out.println("Parsed PCDPPath: " + pcdpPath);
 
-            final String file = fs.readFile(pcdpPath);
+                final String file = fs.readFile(pcdpPath);
 
-            OutputStream outputStream = s.getOutputStream();
-            PrintWriter printer = new PrintWriter(outputStream, true);
-            if (file == null) {
-                System.out.println("File not found: " + pcdpPath);
-                // Send 404 Not Found response
-                printer.write(
-                    "HTTP/1.0 404 Not Found\r\n" +
-                    "Server: FileServer\r\n" +
-                    "\r\n"+
-                    "\r\n"
-                );
-            } else {
-                System.out.println("File found: " + pcdpPath);
-                System.out.println("Sending: ");
-                System.out.println("HTTP/1.0 200 OK\r\n" +
-                     "Server: FileServer\r\n" +                     
-                     "\r\n" +
-                     file + "\r\n");
-                // Send 200 OK response with file contents
-                printer.write(
-                     "HTTP/1.0 200 OK\r\n" +
-                     "Server: FileServer\r\n" +                     
-                     "\r\n" +
-                     file + "\r\n");
-            }
-            }finally {                
-                s.close();
+                
+                if (file == null) {
+                    System.out.println("File not found: " + pcdpPath);
+                    // Send 404 Not Found response
+                    printer.write(
+                        "HTTP/1.0 404 Not Found\r\n" +
+                        "Server: FileServer\r\n" +
+                        "\r\n"+
+                        "\r\n"
+                    );
+                    printer.flush();
+                } else {
+                    System.out.println("File found: " + pcdpPath);
+                    System.out.println("Sending: ");
+                    System.out.println("HTTP/1.0 200 OK\r\n" +
+                        "Server: FileServer\r\n" +                     
+                        "\r\n" +
+                        file + "\r\n");
+                    // Send 200 OK response with file contents
+                    printer.write(
+                        "HTTP/1.0 200 OK\r\n" +
+                        "Server: FileServer\r\n" +                     
+                        "\r\n" +
+                        file + "\r\n");
+                    printer.flush();
+                }
+            }finally {
+                s.close();            
             }            
 
             /*
