@@ -55,7 +55,9 @@ public final class FileServer {
                 String requestLine = bufferedReader.readLine();
                 OutputStream outputStream = s.getOutputStream();
                 PrintWriter printer = new PrintWriter(outputStream, true);
-                if (requestLine == null || !requestLine.startsWith("GET ")) {                
+                assert requestLine != null;
+                assert requestLine.startsWith("GET ");
+                if (!requestLine.startsWith("GET ")) {                
                     System.out.println("Invalid request: " + requestLine);  
                     printer.write(
                         "HTTP/1.0 400 Bad Request\r\n" +
@@ -63,8 +65,7 @@ public final class FileServer {
                         "\r\n"+
                         "\r\n"
                     );   
-                    printer.flush();
-                    continue; 
+                    printer.flush();                    
                 }
 
                 final String path = requestLine.split(" ")[1];
@@ -88,11 +89,11 @@ public final class FileServer {
                     printer.flush();
                 } else {
                     System.out.println("File found: " + pcdpPath);
-                    System.out.println("Sending: ");
-                    System.out.println("HTTP/1.0 200 OK\r\n" +
-                        "Server: FileServer\r\n" +                     
-                        "\r\n" +
-                        file + "\r\n");
+                    // System.out.println("Sending: ");
+                    // System.out.println("HTTP/1.0 200 OK\r\n" +
+                    //     "Server: FileServer\r\n" +                     
+                    //     "\r\n" +
+                    //     file + "\r\n");
                     // Send 200 OK response with file contents
                     printer.write(
                         "HTTP/1.0 200 OK\r\n" +
@@ -101,9 +102,12 @@ public final class FileServer {
                         file + "\r\n");
                     printer.flush();
                 }
-            }finally {
-                s.close();            
-            }            
+            } catch (IOException e) {
+                        System.err.println("Error handling request: " + e.getMessage());
+                        throw new RuntimeException("Error handling request", e);
+                } finally {
+                    s.close();            
+                    }            
 
             /*
              * TODO 3) Using the parsed path to the target file, construct an

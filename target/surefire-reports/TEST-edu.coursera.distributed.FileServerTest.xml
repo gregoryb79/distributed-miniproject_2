@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="edu.coursera.distributed.FileServerTest" time="0.116" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="edu.coursera.distributed.FileServerTest" time="0.11" tests="8" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -19,7 +19,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\OpenLogic\jdk-8.0.442.06-hotspot\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\grego\AppData\Local\Temp\surefire8790873809217791134\surefirebooter-20250616170713486_3.jar C:\Users\grego\AppData\Local\Temp\surefire8790873809217791134 2025-06-16T17-07-13_084-jvmRun1 surefire-20250616170713486_1tmp surefire_0-20250616170713486_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\grego\AppData\Local\Temp\surefire1556174721210306917\surefirebooter-20250618153346879_3.jar C:\Users\grego\AppData\Local\Temp\surefire1556174721210306917 2025-06-18T15-33-46_515-jvmRun1 surefire-20250618153346879_1tmp surefire_0-20250618153346879_2tmp"/>
     <property name="surefire.test.class.path" value="C:\Users\grego\Java\CourseraProjects\Distributed Progrmming in Java\miniproject_2\target\test-classes;C:\Users\grego\Java\CourseraProjects\Distributed Progrmming in Java\miniproject_2\target\classes;C:\Users\grego\.m2\repository\org\apache\maven\plugins\maven-resources-plugin\3.3.1\maven-resources-plugin-3.3.1.jar;C:\Users\grego\.m2\repository\org\codehaus\plexus\plexus-interpolation\1.26\plexus-interpolation-1.26.jar;C:\Users\grego\.m2\repository\org\codehaus\plexus\plexus-utils\3.5.1\plexus-utils-3.5.1.jar;C:\Users\grego\.m2\repository\org\apache\maven\shared\maven-filtering\3.3.1\maven-filtering-3.3.1.jar;C:\Users\grego\.m2\repository\javax\inject\javax.inject\1\javax.inject-1.jar;C:\Users\grego\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\grego\.m2\repository\org\sonatype\plexus\plexus-build-api\0.0.7\plexus-build-api-0.0.7.jar;C:\Users\grego\.m2\repository\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;C:\Users\grego\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar;C:\Users\grego\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\grego\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\grego"/>
@@ -32,7 +32,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\grego\AppData\Local\Temp\surefire8790873809217791134\surefirebooter-20250616170713486_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\grego\AppData\Local\Temp\surefire1556174721210306917\surefirebooter-20250618153346879_3.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\OpenLogic\jdk-8.0.442.06-hotspot\jre\lib\resources.jar;C:\Program Files\OpenLogic\jdk-8.0.442.06-hotspot\jre\lib\rt.jar;C:\Program Files\OpenLogic\jdk-8.0.442.06-hotspot\jre\lib\sunrsasign.jar;C:\Program Files\OpenLogic\jdk-8.0.442.06-hotspot\jre\lib\jsse.jar;C:\Program Files\OpenLogic\jdk-8.0.442.06-hotspot\jre\lib\jce.jar;C:\Program Files\OpenLogic\jdk-8.0.442.06-hotspot\jre\lib\charsets.jar;C:\Program Files\OpenLogic\jdk-8.0.442.06-hotspot\jre\lib\jfr.jar;C:\Program Files\OpenLogic\jdk-8.0.442.06-hotspot\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -62,55 +62,37 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testLargeFileGet" classname="edu.coursera.distributed.FileServerTest" time="0.05">
+  <testcase name="testLargeFileGet" classname="edu.coursera.distributed.FileServerTest" time="0.042">
     <system-out><![CDATA[Received request for: /static/ABC.txt
 Parsed PCDPPath: /static/ABC.txt
 File found: /static/ABC.txt
-Sending: 
-HTTP/1.0 200 OK
-Server: FileServer
-
-61439915012977159735934719552216245316804676617316266570283576210544984740924719691487795800628463875351908960977250981496554415365730485264093088246798094345723995557848449533918026121712275108919085184523700169243447629597146556020758184322827752383845736940741817273705517994237839887593681019974457989481674322895017781871810213039078367150229658944423314440680080519803531811895161657531967984731933920378839206654302198186526987830910947526058289291491619498031041846663705608145055666233815018637926913770814328562244733920193482765890683624085535732994533353723297443239234153816836062927173106599046675365223404990617718106564887931093648187639436156065854494572821758956133753565843283459931993126216718875279781385894771235583426310789186593844716298705880548919079800805100435749413287269260757876790131472872327286148936653291519399659328726101631255380505044406733398850440402426893887724308574435504795313170308754419647652111607187819981338169236062072977383814941110478616779137197944660245446252445545278160010573391076406557594738384143413947571208167573187175430557835696223651506143383104099368715611716604856246240830964954322004935878722408078804260600027197231200313070305995080757630860727606422738166155024318709304783223201301011479904761413251684972329656161080393809281313358668360720575255410079743257673066728348039976175932714081671580658018333729238724365160588602399215101292447115530291785495399261264974596921484256970023919151847209211226164829189696851150402347061105388394444037184830393766729530261000740187070248813392886418523245215286274072722822915097016685241611531581616074338298423940892988393750159303446318693931001569752635035494639222893079220079556530164947059691054386025334713011575902792315110992537612757431969527019958607574012366607188181906551123150961139276288434679029132839991632198776815424245415661653907239502846564465328903951939749202118996976593469122309060798172836811431912575919993570460791736377873232535618662071324883825652735316013358288665281666203954166377592966762579827
-
 ]]></system-out>
     <system-err><![CDATA[
 Launching server for testLargeFileGet
 Requesting static/ABC.txt... reponse code is 200, with content length 2048
 ]]></system-err>
   </testcase>
-  <testcase name="testDoublyNestedFileGet" classname="edu.coursera.distributed.FileServerTest" time="0.008">
+  <testcase name="testDoublyNestedFileGet" classname="edu.coursera.distributed.FileServerTest" time="0.004">
     <system-out><![CDATA[Received request for: /static/dir3/dir4/E.txt
 Parsed PCDPPath: /static/dir3/dir4/E.txt
 File found: /static/dir3/dir4/E.txt
-Sending: 
-HTTP/1.0 200 OK
-Server: FileServer
-
-4467027626
-
 ]]></system-out>
     <system-err><![CDATA[
 Launching server for testDoublyNestedFileGet
 Requesting static/dir3/dir4/E.txt... reponse code is 200, with content length 10
 ]]></system-err>
   </testcase>
-  <testcase name="testFileGet" classname="edu.coursera.distributed.FileServerTest" time="0.005">
+  <testcase name="testFileGet" classname="edu.coursera.distributed.FileServerTest" time="0.006">
     <system-out><![CDATA[Received request for: /static/A.txt
 Parsed PCDPPath: /static/A.txt
 File found: /static/A.txt
-Sending: 
-HTTP/1.0 200 OK
-Server: FileServer
-
-17040
-
 ]]></system-out>
     <system-err><![CDATA[
 Launching server for testFileGet
 Requesting static/A.txt... reponse code is 200, with content length 5
 ]]></system-err>
   </testcase>
-  <testcase name="testMissingNestedFileGet" classname="edu.coursera.distributed.FileServerTest" time="0.001">
+  <testcase name="testMissingNestedFileGet" classname="edu.coursera.distributed.FileServerTest" time="0.004">
     <system-out><![CDATA[Received request for: /static/missingdir/missing.txt
 Parsed PCDPPath: /static/missingdir/missing.txt
 File not found: /static/missingdir/missing.txt
@@ -120,23 +102,17 @@ Launching server for testMissingNestedFileGet
 Requesting static/missingdir/missing.txt... reponse code is 404, with content length 0
 ]]></system-err>
   </testcase>
-  <testcase name="testNestedFileGet" classname="edu.coursera.distributed.FileServerTest" time="0.004">
+  <testcase name="testNestedFileGet" classname="edu.coursera.distributed.FileServerTest" time="0.006">
     <system-out><![CDATA[Received request for: /static/dir1/C.txt
 Parsed PCDPPath: /static/dir1/C.txt
 File found: /static/dir1/C.txt
-Sending: 
-HTTP/1.0 200 OK
-Server: FileServer
-
-0073273854
-
 ]]></system-out>
     <system-err><![CDATA[
 Launching server for testNestedFileGet
 Requesting static/dir1/C.txt... reponse code is 200, with content length 10
 ]]></system-err>
   </testcase>
-  <testcase name="testMissingFileGet" classname="edu.coursera.distributed.FileServerTest" time="0.005">
+  <testcase name="testMissingFileGet" classname="edu.coursera.distributed.FileServerTest" time="0.003">
     <system-out><![CDATA[Received request for: /static/missing.txt
 Parsed PCDPPath: /static/missing.txt
 File not found: /static/missing.txt
@@ -146,25 +122,13 @@ Launching server for testMissingFileGet
 Requesting static/missing.txt... reponse code is 404, with content length 0
 ]]></system-err>
   </testcase>
-  <testcase name="testFileGets" classname="edu.coursera.distributed.FileServerTest" time="0.003">
+  <testcase name="testFileGets" classname="edu.coursera.distributed.FileServerTest" time="0.005">
     <system-out><![CDATA[Received request for: /static/A.txt
 Parsed PCDPPath: /static/A.txt
 File found: /static/A.txt
-Sending: 
-HTTP/1.0 200 OK
-Server: FileServer
-
-17040
-
 Received request for: /static/B.txt
 Parsed PCDPPath: /static/B.txt
 File found: /static/B.txt
-Sending: 
-HTTP/1.0 200 OK
-Server: FileServer
-
-3653118163
-
 ]]></system-out>
     <system-err><![CDATA[
 Launching server for testFileGets
